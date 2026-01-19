@@ -1067,266 +1067,338 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* --- Content Reveal & Preloader --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--alt-section-bg);
+            border-top: 5px solid var(--emerald-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        body.loaded #preloader {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #main-content {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.loaded #main-content {
+            opacity: 1;
+        }
+
+        /* --- Dynamic Loading States --- */
+        .dynamic-load {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            pointer-events: none;
+        }
+
+        .content-ready {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+            pointer-events: auto !important;
+        }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <div class="container navbar">
-            <div class="iqra-logo">
-                <span class="islamic-motif">
-                    <img src="./assets/123.png" alt="IQRA" class="iqra-logo">
-                </span>
-            </div>
+    <div id="preloader">
+        <div class="loader-spinner"></div>
+        <p style="margin-top: 15px; color: var(--emerald-green); font-weight: 600;">লোড হচ্ছে (Loading...)</p>
+    </div>
 
-            <nav class="nav-center">
-                <ul class="nav-links">
-                    <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
-                    <li><a href="#committee"><i class="fas fa-users-cog"></i> Committee</a></li>
-                    <li><a href="#teachers"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
-                    <li><a href="#programs"><i class="fas fa-book-open"></i> Programs</a></li>
-                    <li><a href="#admission"><i class="fas fa-file-alt"></i> Admission</a></li>
-                    <li><a href="#notice"><i class="fas fa-bullhorn"></i> Notice</a></li>
-                    <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
-                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+    <div id="main-content">
+        <header>
+            <div class="container navbar">
+                <div class="iqra-logo">
+                    <span class="islamic-motif">
+                        <img src="./assets/123.png" alt="IQRA" class="iqra-logo">
+                    </span>
+                </div>
+
+                <nav class="nav-center">
+                    <ul class="nav-links">
+                        <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                        <li><a href="#committee"><i class="fas fa-users-cog"></i> Committee</a></li>
+                        <li><a href="#teachers"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+                        <li><a href="#programs"><i class="fas fa-book-open"></i> Programs</a></li>
+                        <li><a href="#admission"><i class="fas fa-file-alt"></i> Admission</a></li>
+                        <li><a href="#notice"><i class="fas fa-bullhorn"></i> Notice</a></li>
+                        <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </nav>
+
+                <button id="menu-toggle" class="menu-toggle" aria-label="Open navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <button id="theme-toggle" aria-label="Toggle dark and light theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+            </div>
+        </header>
+
+        <section id="hero">
+            <div class="hero-content">
+                <h1>ইকরা ইসলামিয়া ক্যাডেট মাদ্রাসা, যশোর</h1>
+                <p class="quranic-verse">"ইকরা বিসমি রাব্বিকাল্লাযী খালাক..." (পড় তোমার প্রভুর নামে, যিনি সৃষ্টি
+                    করেছেন।)
+                </p>
+                <p><strong>ইকরা ইসলামিয়া ক্যাডেট মাদ্রাসা</strong> – আধুনিক ও ইসলামিক শিক্ষার সমন্বয়ে নেতৃত্ব, শৃঙ্খলা
+                    ও
+                    নৈতিকতার শিক্ষা প্রদানকারী প্রতিষ্ঠান।</p>
+                <div>
+                    <a href="portal.html" class="btn btn-primary">Go To Portal <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://drive.google.com/drive/folders/1tLSRssH7E-SA5hpWWc7M2j5pC6PiMfyq?usp=sharing"
+                        class="btn btn-secondary">Download App <i class="fas fa-mobile-alt"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">আমাদের সম্পর্কে (About Us)</h2>
+                <div class="about-content">
+                    <img src="https://iili.io/fIUEEG4.jpg" alt="Madrasa Campus Photo"
+                        onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\' viewBox=\'0 0 400 250\'><rect width=\'400\' height=\'250\' fill=\'%23e0e0e0\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'20\' fill=\'%23888\' text-anchor=\'middle\'>ক্যাম্পাসের ছবি</text></svg>'" />
+                    <div>
+                        <p>ইকরা ইসলামিয়া ক্যাডেট মাদ্রাসা যশোর অঞ্চলে আধুনিক ও ইসলামিক শিক্ষার সমন্বয়ে একটি ব্যতিক্রমী
+                            শিক্ষা প্রতিষ্ঠান। আমরা ছাত্রদের নৈতিকতার সাথে নেতৃত্ব, শৃঙ্খলা এবং শ্রেষ্ঠত্বের জন্য
+                            প্রস্তুত
+                            করি। আমাদের লক্ষ্য হচ্ছে এমন প্রজন্ম তৈরি করা যারা দ্বীন ও দুনিয়া উভয় ক্ষেত্রেই সফল হবে।
+                        </p>
+
+                        <div class="mission-vision">
+                            <div class="mv-item">
+                                <i class="fas fa-bullseye"></i>
+                                <h3>মিশন (Mission)</h3>
+                                <p>ইসলামিক মূল্যবোধের ভিত্তিতে আধুনিক জ্ঞান ও প্রযুক্তির শিক্ষা নিশ্চিত করা।</p>
+                            </div>
+                            <div class="mv-item">
+                                <i class="fas fa-eye"></i>
+                                <h3>ভিশন (Vision)</h3>
+                                <p>দেশ ও জাতির জন্য আদর্শ, যোগ্য ও নৈতিকতাসম্পন্ন নেতৃত্ব তৈরি করা।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="messages">
+            <div class="container">
+                <h2 class="section-title">নেতৃত্বের বার্তা (Leadership Messages)</h2>
+                <div class="messages-grid dynamic-load" id="messages-container">
+                    <div class="message-card" id="chairman-card">
+                        <div class="profile-img-container">
+                            <img src="https://via.placeholder.com/150" alt="Chairman" class="msg-photo">
+                        </div>
+                        <h3 class="msg-name">নাম: [চেয়ারম্যানের নাম]</h3>
+                        <i class="fas fa-quote-right quote-icon"></i>
+                        <h3>চেয়ারম্যানের বাণী (Chairman's Speech)</h3>
+                        <p class="speech-quote msg-text">"শিক্ষাই জাতির মেরুদণ্ড। আমরা আধুনিক শিক্ষার সাথে ইসলামী
+                            মূল্যবোধকে
+                            সমন্বিত করে আমাদের ছাত্রদেরকে ভবিষ্যৎ বিশ্বের জন্য প্রস্তুত করছি। শৃঙ্খলাই আমাদের মূল
+                            শক্তি।"
+                        </p>
+                        <p class="speaker-info">চেয়ারম্যান<br>ইকরা ইসলামিয়া ক্যাডেট মাদ্রাসা, যশোর</p>
+                    </div>
+                    <div class="message-card" id="director-card">
+                        <div class="profile-img-container">
+                            <img src="https://via.placeholder.com/150" alt="Director" class="msg-photo">
+                        </div>
+                        <h3 class="msg-name">নাম: [পরিচালকের নাম]</h3>
+                        <i class="fas fa-quote-right quote-icon"></i>
+                        <h3>পরিচালকের বক্তব্য (Director's Speech)</h3>
+                        <p class="speech-quote msg-text">"আমাদের প্রতিষ্ঠানে প্রতিটি শিক্ষার্থী যেন নৈতিকতা ও
+                            আত্মবিশ্বাসের
+                            সাথে বেড়ে ওঠে, সেদিকে আমরা সর্বোচ্চ গুরুত্ব দেই। ক্যাডেট জীবন তাদের জীবনে শৃঙ্খলা ও
+                            নেতৃত্বের
+                            ভিত্তি গড়ে দেয়।"</p>
+                        <p class="speaker-info">পরিচালক<br>ইকরা ইসলামিয়া ক্যাডেট মাদ্রাসা, যশোর</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="committee" style="background-color: var(--alt-section-bg);">
+            <div class="container">
+                <h2 class="section-title">কমিটি সদস্যবৃন্দ (Committee Members)</h2>
+                <div class="grid-container dynamic-load" id="committee-grid">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </section>
+
+        <section id="teachers" style="background-color: var(--white);">
+            <div class="container">
+                <h2 class="section-title">শিক্ষকমণ্ডলী (Teachers)</h2>
+                <div class="grid-container dynamic-load" id="teachers-grid">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </section>
+
+        <section id="programs">
+            <div class="container">
+                <h2 class="section-title">একাডেমিক প্রোগ্রামসমূহ (Academic Programs)</h2>
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <i class="fas fa-quran"></i>
+                        <h3>ইসলামিক শিক্ষা</h3>
+                        <p>হিফজ, দারস-ই-নিযামী, আরবি ভাষা ও সাহিত্য অধ্যয়ন।</p>
+                    </div>
+                    <div class="program-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>সাধারণ শিক্ষা</h3>
+                        <p>পি.এস.সি থেকে এইচ.এস.সি বা সমমানের জেনারেল বোর্ডের পাঠ্যক্রম।</p>
+                    </div>
+                    <div class="program-card">
+                        <i class="fas fa-users-cog"></i>
+                        <h3>ক্যাডেট ও নেতৃত্ব প্রশিক্ষণ</h3>
+                        <p>শারীরিক ও মানসিক শৃঙ্খলা, নেতৃত্বের গুণাবলী ও সামরিক প্রশিক্ষণ।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="facilities">
+            <div class="container">
+                <h2 class="section-title">সুবিধাসমূহ (Facilities)</h2>
+                <div class="facilities-grid">
+                    <div class="facility-item">
+                        <i class="fas fa-bed"></i>
+                        <h4>হোস্টেল</h4>
+                    </div>
+                    <div class="facility-item">
+                        <i class="fas fa-book"></i>
+                        <h4>লাইব্রেরি</h4>
+                    </div>
+                    <div class="facility-item">
+                        <i class="fas fa-mosque"></i>
+                        <h4>মসজিদ</h4>
+                    </div>
+                    <div class="facility-item">
+                        <i class="fas fa-desktop"></i>
+                        <h4>ডিজিটাল ক্লাসরুম</h4>
+                    </div>
+                    <div class="facility-item">
+                        <i class="fas fa-volleyball-ball"></i>
+                        <h4>খেলার মাঠ</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="container">
+                <h2 class="section-title">গ্যালারি (Gallery)</h2>
+                <div class="gallery-grid dynamic-load" id="gallery-grid">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </section>
+
+        <section id="admission">
+            <div class="container">
+                <div class="admission-content dynamic-load">
+                    <h3>ভর্তি চলছে! (Admission is Open!)</h3>
+                    <p>আমাদের আধুনিক ও ইসলামিক শিক্ষা কার্যক্রমে যোগ দিতে আজই আবেদন করুন।</p>
+                    <div>
+                        <a href="https://forms.gle/Db4hCGWKxK9QcqTv8" class="btn btn-apply" id="app-download-link">
+                            <i class="fas fa-edit"></i> Apply for Admission
+                        </a>
+                        <a href="/assets/Iqra_Islamia_Cadet_Madrasha_Prospectus.pdf" class="btn btn-download"
+                            id="prospectus-link">
+                            <i class="fas fa-file-pdf"></i> Prospectus Download (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="notice">
+            <div class="container">
+                <h2 class="section-title">নোটিশ বোর্ড / খবর (Notice Board / News)</h2>
+                <ul class="notice-list dynamic-load" id="notice-list">
+                    <!-- Dynamic Content -->
                 </ul>
-            </nav>
-
-            <button id="menu-toggle" class="menu-toggle" aria-label="Open navigation menu">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <button id="theme-toggle" aria-label="Toggle dark and light theme">
-                <i class="fas fa-moon"></i>
-            </button>
-
-        </div>
-    </header>
-
-    <section id="hero">
-        <div class="hero-content">
-            <h1>ইকরা ইসলামিয়া ক্যাডেট মাদ্রাসা, যশোর</h1>
-            <p class="quranic-verse">"ইকরা বিসমি রাব্বিকাল্লাযী খালাক..." (পড় তোমার প্রভুর নামে, যিনি সৃষ্টি করেছেন।)
-            </p>
-            <p><strong>ইকরা ইসলামিয়া ক্যাডেট মাদ্রাসা</strong> – আধুনিক ও ইসলামিক শিক্ষার সমন্বয়ে নেতৃত্ব, শৃঙ্খলা ও
-                নৈতিকতার শিক্ষা প্রদানকারী প্রতিষ্ঠান।</p>
-            <div>
-                <a href="portal.html" class="btn btn-primary">Go To Portal <i class="fas fa-arrow-right"></i></a>
-                <a href="https://drive.google.com/drive/folders/1tLSRssH7E-SA5hpWWc7M2j5pC6PiMfyq?usp=sharing"
-                    class="btn btn-secondary">Download App <i class="fas fa-mobile-alt"></i></a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">আমাদের সম্পর্কে (About Us)</h2>
-            <div class="about-content">
-                <img src="https://iili.io/fIUEEG4.jpg" alt="Madrasa Campus Photo"
-                    onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\' viewBox=\'0 0 400 250\'><rect width=\'400\' height=\'250\' fill=\'%23e0e0e0\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'20\' fill=\'%23888\' text-anchor=\'middle\'>ক্যাম্পাসের ছবি</text></svg>'" />
-                <div>
-                    <p>ইকরা ইসলামিয়া ক্যাডেট মাদ্রাসা যশোর অঞ্চলে আধুনিক ও ইসলামিক শিক্ষার সমন্বয়ে একটি ব্যতিক্রমী
-                        শিক্ষা প্রতিষ্ঠান। আমরা ছাত্রদের নৈতিকতার সাথে নেতৃত্ব, শৃঙ্খলা এবং শ্রেষ্ঠত্বের জন্য প্রস্তুত
-                        করি। আমাদের লক্ষ্য হচ্ছে এমন প্রজন্ম তৈরি করা যারা দ্বীন ও দুনিয়া উভয় ক্ষেত্রেই সফল হবে।</p>
-
-                    <div class="mission-vision">
-                        <div class="mv-item">
-                            <i class="fas fa-bullseye"></i>
-                            <h3>মিশন (Mission)</h3>
-                            <p>ইসলামিক মূল্যবোধের ভিত্তিতে আধুনিক জ্ঞান ও প্রযুক্তির শিক্ষা নিশ্চিত করা।</p>
-                        </div>
-                        <div class="mv-item">
-                            <i class="fas fa-eye"></i>
-                            <h3>ভিশন (Vision)</h3>
-                            <p>দেশ ও জাতির জন্য আদর্শ, যোগ্য ও নৈতিকতাসম্পন্ন নেতৃত্ব তৈরি করা।</p>
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">যোগাযোগ (Contact)</h2>
+                <div class="contact-grid">
+                    <div class="contact-form-container">
+                        <h3>যোগাযোগ ফরম</h3>
+                        <form action="https://api.staticforms.dev/submit" method="POST">
+                            <input type="hidden" name="apiKey" value="sf_k2m77g3j4ld3j29lc349bfkg">
+                            <input type="text" name="name" placeholder="নাম" required>
+                            <input type="email" name="email" placeholder="ইমেইল" required>
+                            <input type="tel" name="phone" placeholder="ফোন নম্বর" required>
+                            <textarea name="message" placeholder="মেসেজ" rows="5" required></textarea>
+                            <input type="hidden" name="redirect" value="https://yourwebsite.com/thank-you">
+                            <button type="submit">মেসেজ পাঠান</button>
+                        </form>
+                        <div class="social-links">
+                            <a href="https://facebook.com/iqramadrashajsr" target="_blank" aria-label="Facebook"><i
+                                    class="fab fa-facebook"></i></a>
+                            <a href="https://wa.me/8801718720379" target="_blank" aria-label="WhatsApp"><i
+                                    class="fab fa-whatsapp"></i></a>
+                            <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i
+                                    class="fab fa-youtube"></i></a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="messages">
-        <div class="container">
-            <h2 class="section-title">নেতৃত্বের বার্তা (Leadership Messages)</h2>
-            <div class="messages-grid" id="messages-container">
-                <div class="message-card" id="chairman-card">
-                    <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/150" alt="Chairman" class="msg-photo">
-                    </div>
-                    <h3 class="msg-name">নাম: [চেয়ারম্যানের নাম]</h3>
-                    <i class="fas fa-quote-right quote-icon"></i>
-                    <h3>চেয়ারম্যানের বাণী (Chairman's Speech)</h3>
-                    <p class="speech-quote msg-text">"শিক্ষাই জাতির মেরুদণ্ড। আমরা আধুনিক শিক্ষার সাথে ইসলামী মূল্যবোধকে
-                        সমন্বিত করে আমাদের ছাত্রদেরকে ভবিষ্যৎ বিশ্বের জন্য প্রস্তুত করছি। শৃঙ্খলাই আমাদের মূল শক্তি।"
-                    </p>
-                    <p class="speaker-info">চেয়ারম্যান<br>ইকরা ইসলামিয়া ক্যাডেট মাদ্রাসা, যশোর</p>
-                </div>
-                <div class="message-card" id="director-card">
-                    <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/150" alt="Director" class="msg-photo">
-                    </div>
-                    <h3 class="msg-name">নাম: [পরিচালকের নাম]</h3>
-                    <i class="fas fa-quote-right quote-icon"></i>
-                    <h3>পরিচালকের বক্তব্য (Director's Speech)</h3>
-                    <p class="speech-quote msg-text">"আমাদের প্রতিষ্ঠানে প্রতিটি শিক্ষার্থী যেন নৈতিকতা ও আত্মবিশ্বাসের
-                        সাথে বেড়ে ওঠে, সেদিকে আমরা সর্বোচ্চ গুরুত্ব দেই। ক্যাডেট জীবন তাদের জীবনে শৃঙ্খলা ও নেতৃত্বের
-                        ভিত্তি গড়ে দেয়।"</p>
-                    <p class="speaker-info">পরিচালক<br>ইকরা ইসলামিয়া ক্যাডেট মাদ্রাসা, যশোর</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="committee" style="background-color: var(--alt-section-bg);">
-        <div class="container">
-            <h2 class="section-title">কমিটি সদস্যবৃন্দ (Committee Members)</h2>
-            <div class="grid-container" id="committee-grid">
-                <!-- Dynamic Content -->
-                <div class="profile-card">
-                    <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/150" alt="Member">
-                    </div>
-                    <h3>নাম: [সদস্যের নাম]</h3>
-                    <p class="designation">পদবী: সদস্য</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="teachers" style="background-color: var(--white);">
-        <div class="container">
-            <h2 class="section-title">শিক্ষকমণ্ডলী (Teachers)</h2>
-            <div class="grid-container" id="teachers-grid">
-                <!-- Dynamic Content -->
-            </div>
-        </div>
-    </section>
-
-    <section id="programs">
-        <div class="container">
-            <h2 class="section-title">একাডেমিক প্রোগ্রামসমূহ (Academic Programs)</h2>
-            <div class="programs-grid">
-                <div class="program-card">
-                    <i class="fas fa-quran"></i>
-                    <h3>ইসলামিক শিক্ষা</h3>
-                    <p>হিফজ, দারস-ই-নিযামী, আরবি ভাষা ও সাহিত্য অধ্যয়ন।</p>
-                </div>
-                <div class="program-card">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>সাধারণ শিক্ষা</h3>
-                    <p>পি.এস.সি থেকে এইচ.এস.সি বা সমমানের জেনারেল বোর্ডের পাঠ্যক্রম।</p>
-                </div>
-                <div class="program-card">
-                    <i class="fas fa-users-cog"></i>
-                    <h3>ক্যাডেট ও নেতৃত্ব প্রশিক্ষণ</h3>
-                    <p>শারীরিক ও মানসিক শৃঙ্খলা, নেতৃত্বের গুণাবলী ও সামরিক প্রশিক্ষণ।</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="facilities">
-        <div class="container">
-            <h2 class="section-title">সুবিধাসমূহ (Facilities)</h2>
-            <div class="facilities-grid">
-                <div class="facility-item">
-                    <i class="fas fa-bed"></i>
-                    <h4>হোস্টেল</h4>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-book"></i>
-                    <h4>লাইব্রেরি</h4>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-mosque"></i>
-                    <h4>মসজিদ</h4>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-desktop"></i>
-                    <h4>ডিজিটাল ক্লাসরুম</h4>
-                </div>
-                <div class="facility-item">
-                    <i class="fas fa-volleyball-ball"></i>
-                    <h4>খেলার মাঠ</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery">
-        <div class="container">
-            <h2 class="section-title">গ্যালারি (Gallery)</h2>
-            <div class="gallery-grid" id="gallery-grid">
-                <!-- Dynamic Content -->
-            </div>
-        </div>
-    </section>
-
-    <section id="admission">
-        <div class="container">
-            <div class="admission-content">
-                <h3>ভর্তি চলছে! (Admission is Open!)</h3>
-                <p>আমাদের আধুনিক ও ইসলামিক শিক্ষা কার্যক্রমে যোগ দিতে আজই আবেদন করুন।</p>
-                <div>
-                    <a href="https://forms.gle/Db4hCGWKxK9QcqTv8" class="btn btn-apply" id="app-download-link">
-                        <i class="fas fa-edit"></i> Apply for Admission
-                    </a>
-                    <a href="/assets/Iqra_Islamia_Cadet_Madrasha_Prospectus.pdf" class="btn btn-download"
-                        id="prospectus-link">
-                        <i class="fas fa-file-pdf"></i> Prospectus Download (PDF)
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="notice">
-        <div class="container">
-            <h2 class="section-title">নোটিশ বোর্ড / খবর (Notice Board / News)</h2>
-            <ul class="notice-list" id="notice-list">
-                <!-- Dynamic Content -->
-            </ul>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">যোগাযোগ (Contact)</h2>
-            <div class="contact-grid">
-                <div class="contact-form-container">
-                    <h3>যোগাযোগ ফরম</h3>
-                    <form action="https://api.staticforms.dev/submit" method="POST">
-                        <input type="hidden" name="apiKey" value="sf_k2m77g3j4ld3j29lc349bfkg">
-                        <input type="text" name="name" placeholder="নাম" required>
-                        <input type="email" name="email" placeholder="ইমেইল" required>
-                        <input type="tel" name="phone" placeholder="ফোন নম্বর" required>
-                        <textarea name="message" placeholder="মেসেজ" rows="5" required></textarea>
-                        <input type="hidden" name="redirect" value="https://yourwebsite.com/thank-you">
-                        <button type="submit">মেসেজ পাঠান</button>
-                    </form>
-                    <div class="social-links">
-                        <a href="https://facebook.com/iqramadrashajsr" target="_blank" aria-label="Facebook"><i
-                                class="fab fa-facebook"></i></a>
-                        <a href="https://wa.me/8801718720379" target="_blank" aria-label="WhatsApp"><i
-                                class="fab fa-whatsapp"></i></a>
-                        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i
-                                class="fab fa-youtube"></i></a>
+                    <div class="map-container">
+                        <h3>অবস্থান (Our Location)</h3>
+                        <iframe
+                            src="https://www.google.com/maps/embed/v1/place?q=Iqra%20Islamia%20Cadet%20Madrasha%2C%20Jashore&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
                 </div>
-                <div class="map-container">
-                    <h3>অবস্থান (Our Location)</h3>
-                    <iframe
-                        src="https://www.google.com/maps/embed/v1/place?q=Iqra%20Islamia%20Cadet%20Madrasha%2C%20Jashore&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </div><!-- End main-content -->
 
     <footer>
         <div class="container">
@@ -1390,105 +1462,109 @@
             });
         });
 
-        // --- DYNAMIC CONTENT LOADER ---
+        // --- DYNAMIC CONTENT LOADER (OPTIMIZED BATCH FETCH) ---
         async function loadWebsiteContent() {
-            const GAS_URL = 'https://script.google.com/macros/s/AKfycby49-_rVHdqPZF1P2cCdeII-fCN7AriIT0XvaNEs0GMw5SlD0z0Z3edtyxuuaLgBQFIUw/exec';
+            const GAS_URL = 'https://script.google.com/macros/s/AKfycbxDkKTurrT87kZLEOtfZ0BQ4ADHcWbFS2jFGws7NDvTA7GztGQ8_96EgIxTaBo3P-AyEA/exec';
 
-            const fetchSheet = async (sheetName) => {
-                try {
-                    const res = await fetch(GAS_URL, {
-                        method: 'POST',
-                        body: JSON.stringify({ action: 'read', sheetName })
+            try {
+                // Batch fetch all required data in ONE round trip
+                const response = await fetch(GAS_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        action: 'readMany',
+                        sheetNames: ['WebsiteLinks', 'WebsiteMessages', 'WebsiteCommittee', 'WebsiteTeachers', 'WebsiteGallery', 'WebsiteNotices']
+                    })
+                });
+                const allData = await response.json();
+
+                // 1. Render Links
+                if (allData.WebsiteLinks) {
+                    allData.WebsiteLinks.forEach(link => {
+                        if (link.id === 'app_download' && link.url) {
+                            const el = document.getElementById('app-download-link');
+                            if (el) el.href = link.url;
+                        }
+                        if (link.id === 'prospectus' && link.url) {
+                            const el = document.getElementById('prospectus-link');
+                            if (el) el.href = link.url;
+                        }
                     });
-                    return await res.json();
-                } catch (e) {
-                    console.error("Failed to load " + sheetName, e);
-                    return [];
                 }
-            };
 
-            // 1. Links
-            fetchSheet('WebsiteLinks').then(data => {
-                data.forEach(link => {
-                    if (link.id === 'app_download' && link.url) {
-                        const el = document.getElementById('app-download-link');
-                        if (el) el.href = link.url;
-                    }
-                    if (link.id === 'prospectus' && link.url) {
-                        const el = document.getElementById('prospectus-link');
-                        if (el) el.href = link.url;
-                    }
+                // 2. Render Messages
+                if (allData.WebsiteMessages) {
+                    allData.WebsiteMessages.forEach(msg => {
+                        const card = document.getElementById(msg.id + '-card');
+                        if (card) {
+                            if (msg.photo) card.querySelector('.msg-photo').src = msg.photo;
+                            if (msg.name) card.querySelector('.msg-name').textContent = 'নাম: ' + msg.name;
+                            if (msg.text) card.querySelector('.msg-text').textContent = msg.text;
+                        }
+                    });
+                }
+
+                // 3. Render Committee
+                if (allData.WebsiteCommittee && allData.WebsiteCommittee.length > 0) {
+                    const grid = document.getElementById('committee-grid');
+                    grid.innerHTML = allData.WebsiteCommittee.map(m => `
+                        <div class="profile-card">
+                            <div class="profile-img-container">
+                                <img src="${m.photo || 'https://via.placeholder.com/150'}" alt="${m.name}" onerror="this.src='https://via.placeholder.com/150'">
+                            </div>
+                            <h3>নাম: ${m.name}</h3>
+                            <p class="designation">পদবী: ${m.designation}</p>
+                        </div>
+                    `).join('');
+                }
+
+                // 4. Render Teachers
+                if (allData.WebsiteTeachers && allData.WebsiteTeachers.length > 0) {
+                    const grid = document.getElementById('teachers-grid');
+                    grid.innerHTML = allData.WebsiteTeachers.map(t => `
+                        <div class="teacher-card">
+                            <div class="profile-img-container">
+                                <img src="${t.photo || 'https://via.placeholder.com/150'}" alt="${t.name}" onerror="this.src='https://via.placeholder.com/150'">
+                            </div>
+                            <div class="teacher-info">
+                                <h3>নাম: ${t.name}</h3>
+                                <p class="designation">পদবী: ${t.designation}</p>
+                                <p class="academic">শিক্ষাগত যোগ্যতা: ${t.academic || '-'}</p>
+                                <p class="subject">বিষয়: ${t.subject || '-'}</p>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+
+                // 5. Render Gallery
+                if (allData.WebsiteGallery && allData.WebsiteGallery.length > 0) {
+                    const grid = document.getElementById('gallery-grid');
+                    grid.innerHTML = allData.WebsiteGallery.map(img => `
+                        <div class="gallery-item">
+                            <img src="${img.url}" alt="${img.caption}" onerror="this.src='https://via.placeholder.com/250x200'">
+                        </div>
+                    `).join('');
+                }
+
+                // 6. Render Notices
+                if (allData.WebsiteNotices && allData.WebsiteNotices.length > 0) {
+                    const list = document.getElementById('notice-list');
+                    list.innerHTML = allData.WebsiteNotices.map(n => `
+                        <li class="notice-item">
+                            <span class="notice-title">${n.title}</span>
+                            <span class="notice-date">${n.date}</span>
+                        </li>
+                    `).join('');
+                }
+
+            } catch (e) {
+                console.error("Batch fetch failed", e);
+            } finally {
+                // Reveal the website and hide loader
+                document.body.classList.add('loaded');
+                document.querySelectorAll('.dynamic-load').forEach(el => {
+                    el.classList.add('content-ready');
                 });
-            });
-
-            // 2. Messages
-            fetchSheet('WebsiteMessages').then(data => {
-                data.forEach(msg => {
-                    const card = document.getElementById(msg.id + '-card');
-                    if (card) {
-                        if (msg.photo) card.querySelector('.msg-photo').src = msg.photo;
-                        if (msg.name) card.querySelector('.msg-name').textContent = 'নাম: ' + msg.name;
-                        if (msg.text) card.querySelector('.msg-text').textContent = msg.text;
-                    }
-                });
-            });
-
-            // 3. Committee
-            fetchSheet('WebsiteCommittee').then(data => {
-                if (data.length === 0) return;
-                const grid = document.getElementById('committee-grid');
-                grid.innerHTML = data.map(m => `
-                    <div class="profile-card">
-                        <div class="profile-img-container">
-                            <img src="${m.photo || 'https://via.placeholder.com/150'}" alt="${m.name}" onerror="this.src='https://via.placeholder.com/150'">
-                        </div>
-                        <h3>নাম: ${m.name}</h3>
-                        <p class="designation">পদবী: ${m.designation}</p>
-                    </div>
-                `).join('');
-            });
-
-            // 4. Teachers
-            fetchSheet('WebsiteTeachers').then(data => {
-                if (data.length === 0) return;
-                const grid = document.getElementById('teachers-grid');
-                grid.innerHTML = data.map(t => `
-                    <div class="teacher-card">
-                        <div class="profile-img-container">
-                            <img src="${t.photo || 'https://via.placeholder.com/150'}" alt="${t.name}" onerror="this.src='https://via.placeholder.com/150'">
-                        </div>
-                        <div class="teacher-info">
-                            <h3>নাম: ${t.name}</h3>
-                            <p class="designation">পদবী: ${t.designation}</p>
-                            <p class="academic">শিক্ষাগত যোগ্যতা: ${t.academic || '-'}</p>
-                            <p class="subject">বিষয়: ${t.subject || '-'}</p>
-                        </div>
-                    </div>
-                `).join('');
-            });
-
-            // 5. Gallery
-            fetchSheet('WebsiteGallery').then(data => {
-                if (data.length === 0) return;
-                const grid = document.getElementById('gallery-grid');
-                grid.innerHTML = data.map(img => `
-                    <div class="gallery-item">
-                        <img src="${img.url}" alt="${img.caption}" onerror="this.src='https://via.placeholder.com/250x200'">
-                    </div>
-                `).join('');
-            });
-
-            // 6. Notices
-            fetchSheet('WebsiteNotices').then(data => {
-                if (data.length === 0) return;
-                const list = document.getElementById('notice-list');
-                list.innerHTML = data.map(n => `
-                    <li class="notice-item">
-                        <span class="notice-title">${n.title}</span>
-                        <span class="notice-date">${n.date}</span>
-                    </li>
-                `).join('');
-            });
+            }
         }
     </script>
 </body>
