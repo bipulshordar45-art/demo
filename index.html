@@ -1148,40 +1148,34 @@
         </div>
     </section>
 
+
     <section id="messages">
         <div class="container">
             <h2 class="section-title">নেতৃত্বের বার্তা (Leadership Messages)</h2>
-            <div class="messages-grid">
-                <div class="message-card">
+            <div class="messages-grid" id="messages-container">
+                <div class="message-card" id="chairman-card">
                     <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/150" alt="Chairman"
-                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'150\' height=\'150\' fill=\'%23ddd\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'14\' fill=\'%23555\' text-anchor=\'middle\'>No Photo</text></svg>'">
+                        <img src="https://via.placeholder.com/150" alt="Chairman" class="msg-photo">
                     </div>
-                    <h3>নাম: [চেয়ারম্যানের নাম]</h3>
+                    <h3 class="msg-name">নাম: [চেয়ারম্যানের নাম]</h3>
                     <i class="fas fa-quote-right quote-icon"></i>
                     <h3>চেয়ারম্যানের বাণী (Chairman's Speech)</h3>
-                    <p class="speech-quote">"শিক্ষাই জাতির মেরুদণ্ড। আমরা আধুনিক শিক্ষার সাথে ইসলামী মূল্যবোধকে সমন্বিত
-                        করে আমাদের ছাত্রদেরকে ভবিষ্যৎ বিশ্বের জন্য প্রস্তুত করছি। শৃঙ্খলাই আমাদের মূল শক্তি।"</p>
-                    <p class="speaker-info">
-                        চেয়ারম্যান<br>
-                        ইকরা ইসলামিয়া ক্যাডেট মাদ্রাসা, যশোর
+                    <p class="speech-quote msg-text">"শিক্ষাই জাতির মেরুদণ্ড। আমরা আধুনিক শিক্ষার সাথে ইসলামী মূল্যবোধকে
+                        সমন্বিত করে আমাদের ছাত্রদেরকে ভবিষ্যৎ বিশ্বের জন্য প্রস্তুত করছি। শৃঙ্খলাই আমাদের মূল শক্তি।"
                     </p>
+                    <p class="speaker-info">চেয়ারম্যান<br>ইকরা ইসলামিয়া ক্যাডেট মাদ্রাসা, যশোর</p>
                 </div>
-                <div class="message-card">
+                <div class="message-card" id="director-card">
                     <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/150" alt="Director"
-                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'150\' height=\'150\' fill=\'%23ddd\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'14\' fill=\'%23555\' text-anchor=\'middle\'>No Photo</text></svg>'">
+                        <img src="https://via.placeholder.com/150" alt="Director" class="msg-photo">
                     </div>
-                    <h3>নাম: [পরিচালকের নাম]</h3>
+                    <h3 class="msg-name">নাম: [পরিচালকের নাম]</h3>
                     <i class="fas fa-quote-right quote-icon"></i>
                     <h3>পরিচালকের বক্তব্য (Director's Speech)</h3>
-                    <p class="speech-quote">"আমাদের প্রতিষ্ঠানে প্রতিটি শিক্ষার্থী যেন নৈতিকতা ও আত্মবিশ্বাসের সাথে
-                        বেড়ে ওঠে, সেদিকে আমরা সর্বোচ্চ গুরুত্ব দেই। ক্যাডেট জীবন তাদের জীবনে শৃঙ্খলা ও নেতৃত্বের ভিত্তি
-                        গড়ে দেয়।"</p>
-                    <p class="speaker-info">
-                        পরিচালক<br>
-                        ইকরা ইসলামিয়া ক্যাডেট মাদ্রাসা, যশোর
-                    </p>
+                    <p class="speech-quote msg-text">"আমাদের প্রতিষ্ঠানে প্রতিটি শিক্ষার্থী যেন নৈতিকতা ও আত্মবিশ্বাসের
+                        সাথে বেড়ে ওঠে, সেদিকে আমরা সর্বোচ্চ গুরুত্ব দেই। ক্যাডেট জীবন তাদের জীবনে শৃঙ্খলা ও নেতৃত্বের
+                        ভিত্তি গড়ে দেয়।"</p>
+                    <p class="speaker-info">পরিচালক<br>ইকরা ইসলামিয়া ক্যাডেট মাদ্রাসা, যশোর</p>
                 </div>
             </div>
         </div>
@@ -1190,21 +1184,11 @@
     <section id="committee" style="background-color: var(--alt-section-bg);">
         <div class="container">
             <h2 class="section-title">কমিটি সদস্যবৃন্দ (Committee Members)</h2>
-            <div class="grid-container">
-                <!-- Member 1 -->
+            <div class="grid-container" id="committee-grid">
+                <!-- Dynamic Content -->
                 <div class="profile-card">
                     <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/150" alt="Member"
-                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'150\' height=\'150\' fill=\'%23ddd\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'14\' fill=\'%23555\' text-anchor=\'middle\'>No Photo</text></svg>'">
-                    </div>
-                    <h3>নাম: [সদস্যের নাম]</h3>
-                    <p class="designation">পদবী: সদস্য</p>
-                </div>
-                <!-- Member 2 -->
-                <div class="profile-card">
-                    <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/150" alt="Member"
-                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'150\' height=\'150\' fill=\'%23ddd\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'14\' fill=\'%23555\' text-anchor=\'middle\'>No Photo</text></svg>'">
+                        <img src="https://via.placeholder.com/150" alt="Member">
                     </div>
                     <h3>নাম: [সদস্যের নাম]</h3>
                     <p class="designation">পদবী: সদস্য</p>
@@ -1216,124 +1200,8 @@
     <section id="teachers" style="background-color: var(--white);">
         <div class="container">
             <h2 class="section-title">শিক্ষকমণ্ডলী (Teachers)</h2>
-            <div class="grid-container">
-                <!-- Teacher 1 -->
-                <div class="teacher-card">
-                    <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/150" alt="Teacher"
-                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'150\' height=\'150\' fill=\'%23ddd\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'14\' fill=\'%23555\' text-anchor=\'middle\'>No Photo</text></svg>'">
-                    </div>
-                    <div class="teacher-info">
-                        <h3>নাম: [শিক্ষকের নাম]</h3>
-                        <p class="designation">পদবী: সহকারী শিক্ষক</p>
-                        <p class="academic">শিক্ষাগত যোগ্যতা: [যোগ্যতা]</p>
-                        <p class="subject">বিষয়: [বিষয়]</p>
-                    </div>
-                </div>
-                <!-- Teacher 2 -->
-                <div class="teacher-card">
-                    <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/150" alt="Teacher"
-                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'150\' height=\'150\' fill=\'%23ddd\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'14\' fill=\'%23555\' text-anchor=\'middle\'>No Photo</text></svg>'">
-                    </div>
-                    <div class="teacher-info">
-                        <h3>নাম: [শিক্ষকের নাম]</h3>
-                        <p class="designation">পদবী: সহকারী শিক্ষক</p>
-                        <p class="academic">শিক্ষাগত যোগ্যতা: [যোগ্যতা]</p>
-                        <p class="subject">বিষয়: [বিষয়]</p>
-                    </div>
-                </div>
-                <!-- Teacher 3 -->
-                <div class="teacher-card">
-                    <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/150" alt="Teacher"
-                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'150\' height=\'150\' fill=\'%23ddd\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'14\' fill=\'%23555\' text-anchor=\'middle\'>No Photo</text></svg>'">
-                    </div>
-                    <div class="teacher-info">
-                        <h3>নাম: [শিক্ষকের নাম]</h3>
-                        <p class="designation">পদবী: সহকারী শিক্ষক</p>
-                        <p class="academic">শিক্ষাগত যোগ্যতা: [যোগ্যতা]</p>
-                        <p class="subject">বিষয়: [বিষয়]</p>
-                    </div>
-                </div>
-                <!-- Teacher 4 -->
-                <div class="teacher-card">
-                    <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/150" alt="Teacher"
-                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'150\' height=\'150\' fill=\'%23ddd\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'14\' fill=\'%23555\' text-anchor=\'middle\'>No Photo</text></svg>'">
-                    </div>
-                    <div class="teacher-info">
-                        <h3>নাম: [শিক্ষকের নাম]</h3>
-                        <p class="designation">পদবী: সহকারী শিক্ষক</p>
-                        <p class="academic">শিক্ষাগত যোগ্যতা: [যোগ্যতা]</p>
-                        <p class="subject">বিষয়: [বিষয়]</p>
-                    </div>
-                </div>
-                <!-- Teacher 5 -->
-                <div class="teacher-card">
-                    <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/150" alt="Teacher"
-                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'150\' height=\'150\' fill=\'%23ddd\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'14\' fill=\'%23555\' text-anchor=\'middle\'>No Photo</text></svg>'">
-                    </div>
-                    <div class="teacher-info">
-                        <h3>নাম: [শিক্ষকের নাম]</h3>
-                        <p class="designation">পদবী: সহকারী শিক্ষক</p>
-                        <p class="academic">শিক্ষাগত যোগ্যতা: [যোগ্যতা]</p>
-                        <p class="subject">বিষয়: [বিষয়]</p>
-                    </div>
-                </div>
-                <!-- Teacher 6 -->
-                <div class="teacher-card">
-                    <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/150" alt="Teacher"
-                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'150\' height=\'150\' fill=\'%23ddd\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'14\' fill=\'%23555\' text-anchor=\'middle\'>No Photo</text></svg>'">
-                    </div>
-                    <div class="teacher-info">
-                        <h3>নাম: [শিক্ষকের নাম]</h3>
-                        <p class="designation">পদবী: সহকারী শিক্ষক</p>
-                        <p class="academic">শিক্ষাগত যোগ্যতা: [যোগ্যতা]</p>
-                        <p class="subject">বিষয়: [বিষয়]</p>
-                    </div>
-                </div>
-                <!-- Teacher 7 -->
-                <div class="teacher-card">
-                    <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/150" alt="Teacher"
-                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'150\' height=\'150\' fill=\'%23ddd\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'14\' fill=\'%23555\' text-anchor=\'middle\'>No Photo</text></svg>'">
-                    </div>
-                    <div class="teacher-info">
-                        <h3>নাম: [শিক্ষকের নাম]</h3>
-                        <p class="designation">পদবী: সহকারী শিক্ষক</p>
-                        <p class="academic">শিক্ষাগত যোগ্যতা: [যোগ্যতা]</p>
-                        <p class="subject">বিষয়: [বিষয়]</p>
-                    </div>
-                </div>
-                <!-- Teacher 8 -->
-                <div class="teacher-card">
-                    <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/150" alt="Teacher"
-                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'150\' height=\'150\' fill=\'%23ddd\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'14\' fill=\'%23555\' text-anchor=\'middle\'>No Photo</text></svg>'">
-                    </div>
-                    <div class="teacher-info">
-                        <h3>নাম: [শিক্ষকের নাম]</h3>
-                        <p class="designation">পদবী: সহকারী শিক্ষক</p>
-                        <p class="academic">শিক্ষাগত যোগ্যতা: [যোগ্যতা]</p>
-                        <p class="subject">বিষয়: [বিষয়]</p>
-                    </div>
-                </div>
-                <!-- Teacher 9 -->
-                <div class="teacher-card">
-                    <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/150" alt="Teacher"
-                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 150 150\'><rect width=\'150\' height=\'150\' fill=\'%23ddd\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'14\' fill=\'%23555\' text-anchor=\'middle\'>No Photo</text></svg>'">
-                    </div>
-                    <div class="teacher-info">
-                        <h3>নাম: [শিক্ষকের নাম]</h3>
-                        <p class="designation">পদবী: সহকারী শিক্ষক</p>
-                        <p class="academic">শিক্ষাগত যোগ্যতা: [যোগ্যতা]</p>
-                        <p class="subject">বিষয়: [বিষয়]</p>
-                    </div>
-                </div>
+            <div class="grid-container" id="teachers-grid">
+                <!-- Dynamic Content -->
             </div>
         </div>
     </section>
@@ -1392,19 +1260,8 @@
     <section id="gallery">
         <div class="container">
             <h2 class="section-title">গ্যালারি (Gallery)</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="https://iili.io/fIUvSzQ.jpg" alt="Student Activity 1"
-                        onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'250\' height=\'200\' viewBox=\'0 0 250 200\'><rect width=\'250\' height=\'200\' fill=\'%23e0e0e0\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'16\' fill=\'%23888\' text-anchor=\'middle\'>ক্রিয়াকলাপ ১</text></svg>'" />
-                </div>
-                <div class="gallery-item"><img src="https://iili.io/fIUvUXV.jpg" alt="Student Activity 2"
-                        onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'250\' height=\'200\' viewBox=\'0 0 250 200\'><rect width=\'250\' height=\'200\' fill=\'%23d0d0d0\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'16\' fill=\'%23777\' text-anchor=\'middle\'>ক্রিয়াকলাপ ২</text></svg>'" />
-                </div>
-                <div class="gallery-item"><img src="https://iili.io/fIUvgLB.jpg" alt="Student Activity 3"
-                        onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'250\' height=\'200\' viewBox=\'0 0 250 200\'><rect width=\'250\' height=\'200\' fill=\'%23c0c0c0\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'16\' fill=\'%23666\' text-anchor=\'middle\'>ক্রিয়াকলাপ ৩</text></svg>'" />
-                </div>
-                <div class="gallery-item"><img src="https://iili.io/fIUvsdg.jpg" alt="Student Activity 4"
-                        onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'250\' height=\'200\' viewBox=\'0 0 250 200\'><rect width=\'250\' height=\'200\' fill=\'%23b0b0b0\'/><text x=\'50%\' y=\'50%\' font-family=\'Arial\' font-size=\'16\' fill=\'%23555\' text-anchor=\'middle\'>ক্রিয়াকলাপ ৪</text></svg>'" />
-                </div>
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Dynamic Content -->
             </div>
         </div>
     </section>
@@ -1415,10 +1272,11 @@
                 <h3>ভর্তি চলছে! (Admission is Open!)</h3>
                 <p>আমাদের আধুনিক ও ইসলামিক শিক্ষা কার্যক্রমে যোগ দিতে আজই আবেদন করুন।</p>
                 <div>
-                    <a href="https://forms.gle/Db4hCGWKxK9QcqTv8" class="btn btn-apply">
+                    <a href="https://forms.gle/Db4hCGWKxK9QcqTv8" class="btn btn-apply" id="app-download-link">
                         <i class="fas fa-edit"></i> Apply for Admission
                     </a>
-                    <a href="/assets/Iqra_Islamia_Cadet_Madrasha_Prospectus.pdf" class="btn btn-download">
+                    <a href="/assets/Iqra_Islamia_Cadet_Madrasha_Prospectus.pdf" class="btn btn-download"
+                        id="prospectus-link">
                         <i class="fas fa-file-pdf"></i> Prospectus Download (PDF)
                     </a>
                 </div>
@@ -1429,19 +1287,8 @@
     <section id="notice">
         <div class="container">
             <h2 class="section-title">নোটিশ বোর্ড / খবর (Notice Board / News)</h2>
-            <ul class="notice-list">
-                <li class="notice-item">
-                    <span class="notice-title">ক্লাস শুরু ২০২৬</span>
-                    <span class="notice-date">৪ জানুয়ারি, ২০২৬</span>
-                </li>
-                <li class="notice-item">
-                    <span class="notice-title">পাঠ্যপুস্তক বিতরণ</span>
-                    <span class="notice-date">১ জানুয়ারি, ২০২৬</span>
-                </li>
-                <li class="notice-item">
-                    <span class="notice-title">ভর্তি পরীক্ষার ফল প্রকাশ</span>
-                    <span class="notice-date">৩০ ডিসেম্বর, ২০২৫</span>
-                </li>
+            <ul class="notice-list" id="notice-list">
+                <!-- Dynamic Content -->
             </ul>
         </div>
     </section>
@@ -1498,7 +1345,6 @@
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
 
-        // Function to set the theme
         function setTheme(isDarkMode) {
             if (isDarkMode) {
                 body.classList.add('dark-mode');
@@ -1511,51 +1357,139 @@
             }
         }
 
-        // Check for saved theme preference or system preference on load
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme');
             const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark') setTheme(true);
+            else if (savedTheme === 'light') setTheme(false);
+            else if (prefersDark) setTheme(true);
+            else setTheme(false);
 
-            if (savedTheme === 'dark') {
-                setTheme(true);
-            } else if (savedTheme === 'light') {
-                setTheme(false);
-            } else if (prefersDark) {
-                // If no preference saved, use system preference
-                setTheme(true);
-            } else {
-                setTheme(false);
-            }
+            // Start dynamic data loading
+            loadWebsiteContent();
         });
 
-        // Event listener for the button click
         themeToggle.addEventListener('click', () => {
             const isDarkMode = body.classList.contains('dark-mode');
             setTheme(!isDarkMode);
         });
-        // --- End Theme Toggle Script ---
 
-        // --- Mobile Menu Toggle Script (NEW) ---
         const menuToggle = document.getElementById('menu-toggle');
         const navbar = document.querySelector('.navbar');
-
         menuToggle.addEventListener('click', () => {
             const isOpen = navbar.classList.toggle('nav-open');
-            // Change hamburger icon (bars) to close icon (times) when open
             menuToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
 
-        // Close menu when a navigation link is clicked (for single-page navigation)
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
-                // Check if the menu is actually open before closing
                 if (navbar.classList.contains('nav-open')) {
                     navbar.classList.remove('nav-open');
                     menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
                 }
             });
         });
-        // --- End Mobile Menu Toggle Script ---
+
+        // --- DYNAMIC CONTENT LOADER ---
+        async function loadWebsiteContent() {
+            const GAS_URL = 'https://script.google.com/macros/s/AKfycby49-_rVHdqPZF1P2cCdeII-fCN7AriIT0XvaNEs0GMw5SlD0z0Z3edtyxuuaLgBQFIUw/exec';
+
+            const fetchSheet = async (sheetName) => {
+                try {
+                    const res = await fetch(GAS_URL, {
+                        method: 'POST',
+                        body: JSON.stringify({ action: 'read', sheetName })
+                    });
+                    return await res.json();
+                } catch (e) {
+                    console.error("Failed to load " + sheetName, e);
+                    return [];
+                }
+            };
+
+            // 1. Links
+            fetchSheet('WebsiteLinks').then(data => {
+                data.forEach(link => {
+                    if (link.id === 'app_download' && link.url) {
+                        const el = document.getElementById('app-download-link');
+                        if (el) el.href = link.url;
+                    }
+                    if (link.id === 'prospectus' && link.url) {
+                        const el = document.getElementById('prospectus-link');
+                        if (el) el.href = link.url;
+                    }
+                });
+            });
+
+            // 2. Messages
+            fetchSheet('WebsiteMessages').then(data => {
+                data.forEach(msg => {
+                    const card = document.getElementById(msg.id + '-card');
+                    if (card) {
+                        if (msg.photo) card.querySelector('.msg-photo').src = msg.photo;
+                        if (msg.name) card.querySelector('.msg-name').textContent = 'নাম: ' + msg.name;
+                        if (msg.text) card.querySelector('.msg-text').textContent = msg.text;
+                    }
+                });
+            });
+
+            // 3. Committee
+            fetchSheet('WebsiteCommittee').then(data => {
+                if (data.length === 0) return;
+                const grid = document.getElementById('committee-grid');
+                grid.innerHTML = data.map(m => `
+                    <div class="profile-card">
+                        <div class="profile-img-container">
+                            <img src="${m.photo || 'https://via.placeholder.com/150'}" alt="${m.name}" onerror="this.src='https://via.placeholder.com/150'">
+                        </div>
+                        <h3>নাম: ${m.name}</h3>
+                        <p class="designation">পদবী: ${m.designation}</p>
+                    </div>
+                `).join('');
+            });
+
+            // 4. Teachers
+            fetchSheet('WebsiteTeachers').then(data => {
+                if (data.length === 0) return;
+                const grid = document.getElementById('teachers-grid');
+                grid.innerHTML = data.map(t => `
+                    <div class="teacher-card">
+                        <div class="profile-img-container">
+                            <img src="${t.photo || 'https://via.placeholder.com/150'}" alt="${t.name}" onerror="this.src='https://via.placeholder.com/150'">
+                        </div>
+                        <div class="teacher-info">
+                            <h3>নাম: ${t.name}</h3>
+                            <p class="designation">পদবী: ${t.designation}</p>
+                            <p class="academic">শিক্ষাগত যোগ্যতা: ${t.academic || '-'}</p>
+                            <p class="subject">বিষয়: ${t.subject || '-'}</p>
+                        </div>
+                    </div>
+                `).join('');
+            });
+
+            // 5. Gallery
+            fetchSheet('WebsiteGallery').then(data => {
+                if (data.length === 0) return;
+                const grid = document.getElementById('gallery-grid');
+                grid.innerHTML = data.map(img => `
+                    <div class="gallery-item">
+                        <img src="${img.url}" alt="${img.caption}" onerror="this.src='https://via.placeholder.com/250x200'">
+                    </div>
+                `).join('');
+            });
+
+            // 6. Notices
+            fetchSheet('WebsiteNotices').then(data => {
+                if (data.length === 0) return;
+                const list = document.getElementById('notice-list');
+                list.innerHTML = data.map(n => `
+                    <li class="notice-item">
+                        <span class="notice-title">${n.title}</span>
+                        <span class="notice-date">${n.date}</span>
+                    </li>
+                `).join('');
+            });
+        }
     </script>
 </body>
 
